@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class Web::UsersControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "get_index" do
+
+  end
+
 end
