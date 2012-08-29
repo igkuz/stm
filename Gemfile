@@ -13,6 +13,7 @@ gem 'pg'
 gem 'state_machine'
 gem 'haml-rails'
 gem 'simple_form'
+gem 'bcrypt-ruby'
 
 
 # Gems used only for assets and not required
