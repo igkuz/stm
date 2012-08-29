@@ -2,7 +2,13 @@
   %thead
     %tr
       %th= User.human_attribute_name :id
+      %th= User.human_attribute_name :name
+      %th= User.human_attribute_name :surname
+      %th= User.human_attribute_name :email
   %tbody
     - @users.each do |user|
       %tr
         %td= user.id
+        %td= user.name
+        %td= user.surname
+        %td= user.email

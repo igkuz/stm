@@ -1,2 +1,2 @@
-= simple_form_for @user, :url => :users do |form|
+= simple_form_for @user, :html => { :class => 'form-horizontal' }, :url => :users do |form|
   = render 'form', :form => form

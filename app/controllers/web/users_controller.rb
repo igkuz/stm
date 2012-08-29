@@ -9,9 +9,12 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def create
-    user = User.new(params[:user])
-    user.save
-    redirect_to :users
+    @user = User.new(params[:user])
+    if @user.save
+      redirect_to root_url, :notice => "Signed up!"
+    else
+      render "new"
+    end
   end
 
 end
