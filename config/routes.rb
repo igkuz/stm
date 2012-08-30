@@ -1,13 +1,10 @@
 Stm::Application.routes.draw do
 
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
-
   scope :module => :web do
-    root :to => "stories#index"
+    root :to => "welcome#index"
 
-    resources :users, :sessions
+    resources :users
+    resource :session,  :only => [:new, :destroy]
 
     resources :stories do
       resources :comments
