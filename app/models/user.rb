@@ -1,5 +1,13 @@
 class User < ActiveRecord::Base
-  has_secure_password
+
+	has_many  :stories, :dependent => :destroy,
+	                    :foreign_key => "owner_id"
+
+	has_many  :tasks, :class_name => "Story",
+	                  :dependent => :nullify,
+	                  :foreign_key => "executor_id"
+
+	has_secure_password
   validates_presence_of :password, :on => :create
   attr_accessible :email, :name, :password,:password_confirmation, :surname
 
