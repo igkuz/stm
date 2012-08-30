@@ -1,11 +1,7 @@
 class Story < ActiveRecord::Base
 
-	belongs_to :owner,  :class_name => "User",
-	                    :foreign_key => "owner_id"
-
-	belongs_to :executor,
-	                      :class_name => "User",
-	                      :foreign_key => "executor_id"
+	belongs_to :owner,  :class_name => "User"
+	belongs_to :executor, :class_name => "User"
 
 	attr_accessible :title, :description, :executor, :state, :type
 
