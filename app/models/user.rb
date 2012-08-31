@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 	                  :dependent => :nullify,
 	                  :foreign_key => "executor_id"
 
+	has_many  :comments,  :dependent => :destroy
+
 	has_secure_password
   validates_presence_of :password, :on => :create
   attr_accessible :email, :name, :password,:password_confirmation, :surname
