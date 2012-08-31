@@ -1,2 +1,2 @@
-%h1 Web::Sessions#new
-%p Find me in app/views/web/sessions/new.html.haml
+= simple_form_for :user, :html => { :class => 'form-horizontal' }, :url => session_path do |form|
+ = render "form_new", :form => form
