@@ -4,14 +4,14 @@ Stm::Application.routes.draw do
     root :to => "welcome#index"
 
     resources :users
-    resource :session,  :only => [:new, :destroy]
+    resource :session, :only => [:new, :create, :destroy]
 
     resources :stories do
-      resources :comments
+      scope :module => :stories do
+	      resources :comments
+      end
     end
 
   end
-
-
 
 end

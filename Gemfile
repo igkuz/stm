@@ -13,7 +13,8 @@ gem 'pg'
 gem 'state_machine'
 gem 'haml-rails'
 gem 'simple_form'
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', '3.0.0'
+
 
 
 # Gems used only for assets and not required
@@ -38,10 +39,22 @@ end
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+	gem 'unicorn'
+	gem 'client_side_validations'
+	gem 'validates'
 
 # Deploy with Capistrano
 # gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
+
+group :test do
+	gem 'minitest'
+	#gem 'mocha', :require => false
+	#gem 'simplecov', :require => false
+	#gem 'ci_reporter'
+	gem 'factory_girl_rails'
+	gem 'turn'
+	#gem 'tconsole'
+end
