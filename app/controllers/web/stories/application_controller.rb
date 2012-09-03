@@ -1,3 +1,3 @@
-class ApplicationController
-	# To change this template use File | Settings | File Templates.
+class Web::Stories::ApplicationController < Web::ProtectedController
+
 end

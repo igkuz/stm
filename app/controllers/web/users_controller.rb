@@ -1,4 +1,4 @@
-class Web::UsersController < Web::ApplicationController
+class Web::UsersController < Web::ProtectedController
 
   def index
     @users = User.all
