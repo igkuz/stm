@@ -1,0 +1,10 @@
+.row
+  .span2
+    %strong= User.human_attribute_name :name
+    \:
+  .span2= @user.full_name
+.row
+  .span2
+    %strong= User.human_attribute_name :email
+    \:
+  .span2= @user.email

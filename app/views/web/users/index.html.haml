@@ -5,10 +5,12 @@
       %th= User.human_attribute_name :name
       %th= User.human_attribute_name :surname
       %th= User.human_attribute_name :email
+      %th Actions
   %tbody
     - @users.each do |user|
       %tr
-        %td= user.id
+        %td= link_to user.id, user_path(user.id)
         %td= user.name
         %td= user.surname
         %td= user.email
+        %td= link_to "Edit", edit_user_path(user.id)

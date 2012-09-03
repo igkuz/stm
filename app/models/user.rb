@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :name, :password,:password_confirmation, :surname
 
+	def full_name
+		"#{name} #{surname}"
+	end
+
 end
