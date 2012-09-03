@@ -1,4 +1,4 @@
-
-= form.input :email, :required => false
-= form.input :password, :required => false
-= form.submit "Log In", :class => "btn"
+.control-group= form.input :email, :required => false
+.control-group= form.input :password, :required => false
+.control-group
+  .controls= form.submit "Log In", :class => "btn"
