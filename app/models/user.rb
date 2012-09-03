@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+	has_secure_password
+
 	has_many  :stories, :dependent => :destroy,
 	                    :foreign_key => "owner_id"
 
@@ -9,12 +11,12 @@ class User < ActiveRecord::Base
 
 	has_many  :comments,  :dependent => :destroy
 
-	has_secure_password
-  validates_presence_of :password, :on => :create
-  attr_accessible :email, :name, :password,:password_confirmation, :surname
 
-  def self.authenticate(email, password)
-    find_by_email(email).try(:authenticate, password)
-  end
+  validates :password,  :presence => true,
+												:on => :create
+
+	validates :email, :uniqueness => true
+
+  attr_accessible :email, :name, :password,:password_confirmation, :surname
 
 end
