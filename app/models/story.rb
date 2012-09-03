@@ -5,11 +5,20 @@ class Story < ActiveRecord::Base
 
 	has_many  :comments
 
-	attr_accessible :title, :description, :executor, :state, :type
+	attr_accessible :title, :description, :executor_id, :state
 
 	validates :title, :presence => true,
 										:length => { :maximum => 256 }
 	validates :description, :presence => true
 	validates :executor, :presence => true
+
+	state_machine :state, :initial => :new do
+
+		state :new
+		state :started
+		state :finished
+		state :accepted
+
+	end
 
 end

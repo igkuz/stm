@@ -4,9 +4,11 @@ class Web::StoriesController < Web::ProtectedController
   end
 
   def create
+	  #raise params[:story].inspect
 	  @story = Story.new(params[:story])
+	  @story.owner_id = current_user.id
 	  if @story.save
-		  redirect_to root_path, :notice => "Story created"
+		  redirect_to stories_path, :notice => "Story created"
 	  else
 		  render "new"
 	  end

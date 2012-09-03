@@ -1,2 +1,2 @@
-%h1 Web::Stories#new
-%p Find me in app/views/web/stories/new.html.haml
+= simple_form_for @story, :url => :stories do |form|
+  = render 'form', :form => form

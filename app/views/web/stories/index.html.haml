@@ -1,2 +1,16 @@
-%h1 Web::Stories#index
-%p Find me in app/views/web/stories/index.html.haml
+%h2 Stories
+%p= link_to "Add", new_story_path
+%table.table.table-stripped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th= Story.human_attribute_name :id
+      %th= Story.human_attribute_name :title
+      %th= Story.human_attribute_name :description
+      %th= Story.human_attribute_name :state
+  %tbody
+    - @stories.each do |story|
+      %tr
+        %td= link_to story.id, edit_story_path(story.id)
+        %td= story.title
+        %td= story.description
+        %td= story.state

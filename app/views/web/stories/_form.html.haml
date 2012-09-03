@@ -1,0 +1,5 @@
+=form.input :title
+=form.input :description
+=form.input :state, :disabled => true
+=form.association :executor, :prompt => "Choose an executor"
+.controls= form.button :submit, "Create Story"
