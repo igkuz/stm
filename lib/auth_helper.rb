@@ -1,4 +1,14 @@
 module AuthHelper
+
+	# User auth
+	def user_sign_in(user)
+		session[:user_id] = user.id
+	end
+
+	def user_sign_out
+		session[:user_id] = nil
+	end
+
 	def logged_in?
 		!!current_user
 	end
