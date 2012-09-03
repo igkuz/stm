@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830083740) do
+ActiveRecord::Schema.define(:version => 20120902192450) do
 
   create_table "comments", :force => true do |t|
     t.string   "title"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20120830083740) do
   create_table "stories", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "type"
+    t.integer  "type_id"
     t.string   "state"
     t.integer  "owner_id"
     t.integer  "executor_id"
