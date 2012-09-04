@@ -21,4 +21,8 @@ class Story < ActiveRecord::Base
 
 	end
 
+	def to_s
+		title
+	end
+
 end
