@@ -18,4 +18,6 @@
   .span2
     %strong= Story.human_attribute_name :executor
   .span2= @story.executor.full_name
-= render "web/stories/comments/comments", :comments => @story.comments
+= render "web/stories/comments", :comments => @story.comments
+= simple_form_for [@story, @story.comments.new] do |form|
+  = render "web/stories/comments/form", :form => form

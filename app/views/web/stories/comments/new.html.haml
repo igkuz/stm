@@ -1,2 +1,2 @@
-%h1 Web::Stories::Comments#new
-%p Find me in app/views/web/stories/comments/new.html.haml
+= simple_form_for [@story, @story.comments.new] do |form|
+  = render "form", :form => form
