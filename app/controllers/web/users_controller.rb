@@ -11,14 +11,14 @@ class Web::UsersController < Web::ProtectedController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to root_url, :notice => "Signed up!"
+      redirect_to users_path(@user.id), :notice => "Signed up!"
     else
       render "new"
     end
   end
 
 	def show
-		@user = User.find_by_id(params[:id])
+		@user = User.find(params[:id])
 	end
 
 	def edit

@@ -4,7 +4,6 @@ class Web::StoriesController < Web::ProtectedController
   end
 
   def create
-	  #raise params[:story].inspect
 	  @story = Story.new(params[:story])
 	  @story.owner_id = current_user.id
 	  if @story.save
@@ -18,7 +17,7 @@ class Web::StoriesController < Web::ProtectedController
 	  @stories = Story.all
   end
 
-	def edit
-
+	def show
+		@story = Story.find(params[:id])
 	end
 end

@@ -10,7 +10,7 @@
   %tbody
     - @stories.each do |story|
       %tr
-        %td= link_to story.id, edit_story_path(story.id)
+        %td= link_to story.id, story_path(story.id)
         %td= story.title
         %td= story.description
         %td= story.state

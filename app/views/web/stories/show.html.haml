@@ -1,0 +1,21 @@
+.row
+  .span2
+    %strong= Story.human_attribute_name :title
+  .span2= @story.title
+.row
+  .span2
+    %strong= Story.human_attribute_name :description
+  .span2= @story.description
+.row
+  .span2
+    %strong= Story.human_attribute_name :state
+  .span2= @story.state
+.row
+  .span2
+    %strong= Story.human_attribute_name :owner
+  .span2= @story.owner.full_name
+.row
+  .span2
+    %strong= Story.human_attribute_name :executor
+  .span2= @story.executor.full_name
+= render "web/stories/comments/comments", :comments => @story.comments
