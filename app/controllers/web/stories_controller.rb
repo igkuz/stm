@@ -20,4 +20,19 @@ class Web::StoriesController < Web::ProtectedController
 	def show
 		@story = Story.find(params[:id])
 	end
+
+	def edit
+		show
+	end
+
+	def update
+		@story = show
+		if @story.update_attributes(params[:story])
+			redirect_to story_path(@story), :notice => "Successfully updated"
+		else
+			flash.now.alert "Smth went wrong"
+			render "edit"
+		end
+	end
+
 end
