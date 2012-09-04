@@ -4,9 +4,10 @@
     %strong Comments
     %hr
     %p
-    - comments.each do |item|
+    - object.each do |item|
       .span4
-      %p= item.user.full_name
+      - if item.user.present?
+        %p= item.user.full_name
       %p
         %strong= item.title
       .span4

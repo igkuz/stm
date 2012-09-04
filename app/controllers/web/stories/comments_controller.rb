@@ -1,10 +1,10 @@
 class Web::Stories::CommentsController < Web::Stories::ApplicationController
   def new
-	  @story = Story.find(params[:story_id])
+	  @story = resource_story
   end
 
   def create
-	  story = Story.find(params[:story_id])
+	  story = resource_story
 	  comment = story.comments.new(params[:comment])
 	  comment.user = current_user
 	  if comment.save

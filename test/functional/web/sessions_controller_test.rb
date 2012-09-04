@@ -7,7 +7,7 @@ class Web::SessionsControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-	  user = create :user
+	  user = FactoryGirl.create(:user)
 	  attrs = { :email => user.email, :password => user.password }
 	  get :create, :user => attrs
 	  assert_response :redirect

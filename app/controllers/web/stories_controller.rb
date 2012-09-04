@@ -5,7 +5,7 @@ class Web::StoriesController < Web::ProtectedController
 
   def create
 	  @story = Story.new(params[:story])
-	  @story.owner_id = current_user.id
+	  @story.owner = current_user
 	  if @story.save
 		  redirect_to stories_path, :notice => "Story created"
 	  else
@@ -19,6 +19,7 @@ class Web::StoriesController < Web::ProtectedController
 
 	def show
 		@story = Story.find(params[:id])
+		@comment = @story.comments.build
 	end
 
 	def edit
@@ -26,7 +27,7 @@ class Web::StoriesController < Web::ProtectedController
 	end
 
 	def update
-		@story = show
+		@story = Story.find(params[:id])
 		if @story.update_attributes(params[:story])
 			redirect_to story_path(@story), :notice => "Successfully updated"
 		else
