@@ -11,7 +11,7 @@ class Web::UsersController < Web::ProtectedController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to users_path(@user.id), :notice => "Signed up!"
+      redirect_to user_path @user, :notice => "Signed up!"
     else
       render "new"
     end
@@ -28,7 +28,7 @@ class Web::UsersController < Web::ProtectedController
 	def update
 		@user = show
 		if @user.update_attributes(params[:user])
-			redirect_to users_path(@user.id)
+			redirect_to user_path @user
 		else
 			flash.now.alert = "Smth went wrong"
 			render "edit"
