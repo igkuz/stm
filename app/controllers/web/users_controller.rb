@@ -26,7 +26,7 @@ class Web::UsersController < Web::ProtectedController
 	end
 
 	def update
-		@user = show
+		@user = User.find(params[:id])
 		if @user.update_attributes(params[:user])
 			redirect_to user_path @user
 		else
