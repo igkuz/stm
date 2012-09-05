@@ -16,6 +16,9 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'bcrypt-ruby', '3.0.0'
 
+## nested forms
+gem "cocoon"
+
 gem 'jquery-rails'
 
 
