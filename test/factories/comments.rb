@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :comment do
-	  title { generate(:title) }
-	  body { generate(:title) }
+	  title
+	  body
 	  user
 	  story
   end
