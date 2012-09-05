@@ -11,6 +11,7 @@ gem 'pg'
 
 ## User gems
 gem 'state_machine'
+gem 'ruby-graphviz', :require => 'graphviz'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'bcrypt-ruby', '3.0.0'

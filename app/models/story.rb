@@ -5,7 +5,7 @@ class Story < ActiveRecord::Base
 
 	has_many  :comments
 
-	attr_accessible :title, :description, :executor_id, :state
+	attr_accessible :title, :description, :executor_id, :state_event
 
 	validates :title, :presence => true,
 										:length => { :maximum => 256 }
@@ -17,7 +17,24 @@ class Story < ActiveRecord::Base
 		state :new
 		state :started
 		state :finished
+		state :reopened
 		state :accepted
+
+		event :start do
+			transition :new => :started
+		end
+
+		event :finish do
+			transition [:started, :reopened] => :finished
+		end
+
+		event :reopen do
+			transition :finished => :reopened
+		end
+
+		event :accept do
+			transition :finished => :accepted
+		end
 
 	end
 
