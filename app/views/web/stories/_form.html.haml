@@ -1,5 +1,5 @@
 =form.input :title
 =form.input :description
-=form.input :state, :disabled => true
+=form.input :state, :collection => story_states
 =form.association :executor, :prompt => "Choose an executor"
 .controls= form.submit
