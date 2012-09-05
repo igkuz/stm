@@ -20,7 +20,7 @@ class Web::UsersControllerTest < ActionController::TestCase
 	end
 
 	test "should post create" do
-		attrs = attributes_for(:user, :name => "TestName#2", :email => "1@mail.ru")
+		attrs = attributes_for(:user)
 		post :create, :user => attrs
 		assert_response :redirect
 
@@ -39,7 +39,7 @@ class Web::UsersControllerTest < ActionController::TestCase
 	end
 
 	test "should put update" do
-		attrs = attributes_for(:user, :name => "UpdateUser")
+		attrs = attributes_for(:user)
 		put :update, :id => @user.id, :user => attrs
 		assert_response :redirect
 

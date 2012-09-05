@@ -1,13 +1,10 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-	sequence (:title) {|n| "Title #{n}"}
-
-  factory :story do
+  factory :comment do
 	  title { generate(:title) }
-	  description "TestDescription"
-	  state "new"
-	  executor
+	  body { generate(:title) }
+	  user
+	  story
   end
-
 end

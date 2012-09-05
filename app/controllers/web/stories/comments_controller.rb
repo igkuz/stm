@@ -15,7 +15,4 @@ class Web::Stories::CommentsController < Web::Stories::ApplicationController
 	  end
   end
 
-  def index
-
-  end
 end

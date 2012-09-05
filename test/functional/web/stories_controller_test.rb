@@ -4,10 +4,8 @@ class Web::StoriesControllerTest < ActionController::TestCase
 
 	setup do
 		@user = create :user
-		if @user
-			user_sign_in @user
-		end
-		@story = create :story, :executor => @user, :owner => @user
+		user_sign_in @user
+		@story = create :story, :owner => @user
 	end
 
   test "should get new" do
@@ -42,7 +40,7 @@ class Web::StoriesControllerTest < ActionController::TestCase
 	end
 
 	test "should put update" do
-		attrs = attributes_for(:story, :title => "UpdateTitle")
+		attrs = attributes_for(:story)
 		put :update, :id => @story.id, :story => attrs
 		assert_response :redirect
 
