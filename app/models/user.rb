@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 	                  :dependent => :nullify,
 	                  :foreign_key => "executor_id"
 
-	has_many  :comments,  :dependent => :destroy
+	has_many  :comments,  :inverse_of => :user,
+	                      :dependent => :destroy
 
 
   validates :password,  :presence => true,

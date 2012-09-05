@@ -18,7 +18,6 @@ class Web::SessionsControllerTest < ActionController::TestCase
 
 	test "should delete destroy" do
 		user_sign_in @user
-		assert user_signed_in?
 
 		delete :destroy
 		assert_response :redirect
