@@ -1,21 +1,29 @@
 require 'test_helper'
 
 class Web::SessionsControllerTest < ActionController::TestCase
-  test "should get new" do
+  setup do
+	  @user = create :user
+  end
+
+	test "should get new" do
     get :new
     assert_response :success
   end
 
   test "should post create" do
-	  user = FactoryGirl.create(:user)
-	  attrs = { :email => user.email, :password => user.password }
+	  attrs = { :email => @user.email, :password => @user.password }
 	  get :create, :user => attrs
 	  assert_response :redirect
   end
 
-	test "destroy test" do
+	test "should delete destroy" do
+		user_sign_in @user
+		assert user_signed_in?
+
 		delete :destroy
 		assert_response :redirect
+
+		assert !user_signed_in?
 	end
 
 
